@@ -1,21 +1,17 @@
 ---
+import { navLinks, siteConfig } from '../data';
+
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '/' } = Astro.props;
-
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'Timeline', href: '/work' },
-  { name: 'Portfolio', href: '/portfolio' },
-];
 ---
 
 <header class="navbar">
   <div class="navbar-container">
     <a href="/" class="logo">
-      Sahil <span>Johari</span>
+      {siteConfig.owner.firstName} <span>{siteConfig.owner.lastName}</span>
     </a>
 
     <nav class="nav-desktop">
