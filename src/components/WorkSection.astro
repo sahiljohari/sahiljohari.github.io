@@ -1,0 +1,223 @@
+---
+const workExperience = {
+  2021: [
+    {
+      title: 'Joined Highmark Health as Software Engineer',
+      description: 'Very excited to join the Highmark team and help in providing remarkable healthcare experiences and solutions.',
+    },
+    {
+      title: 'Created ExpiryMinder',
+      description: 'Always wanted to build a tool that helps me track important expiry dates. Finally, ExpiryMinder was born!',
+    },
+  ],
+  2020: [
+    {
+      title: 'Redesigned my portfolio website using React.js',
+      description: 'From plain-old HTML-CSS-JS to hot and elegant React.js, the transition was mesmerizing!',
+    },
+    {
+      title: 'Built an autonomous drone web UI',
+      description: "Part of a project for one of my clients, I explored 3D drawing in browser and created a real-time simulation of a drone's POV using Three.js.",
+    },
+  ],
+  2019: [
+    {
+      title: 'Started at Rivers Agile',
+      description: 'I joined the engineering team at Rivers Agile where I worked on a diverse set of interesting and meaningful projects.',
+    },
+    {
+      title: 'Moved to Pittsburgh, Pennsylvania',
+      description: 'A sad but pivotal event in my life. Leaving Dallas was not easy...',
+    },
+    {
+      title: 'Graduated with a Masters Degree',
+      description: 'One of the greatest achievements of my career! Completed my degree in Computer Science with a 3.53 GPA.',
+    },
+  ],
+};
+
+const years = Object.keys(workExperience).sort((a, b) => Number(b) - Number(a));
+---
+
+<section class="work-section">
+  <div class="work-container">
+    <div class="banner">
+      <div class="banner-words">
+        <span>simple.</span>
+        <span>elegant.</span>
+        <span>effective.</span>
+        <span>rewarding.</span>
+      </div>
+    </div>
+
+    <h2 class="section-title">My journey so far...</h2>
+
+    <div class="timeline">
+      {years.map(year => (
+        <div class="timeline-year">
+          <div class="year-marker">
+            <span class="year">{year}</span>
+          </div>
+          <div class="year-events">
+            {workExperience[year].map((event, index) => (
+              <article class="timeline-card">
+                <h3 class="event-title">{event.title}</h3>
+                <p class="event-description">{event.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .work-section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+  }
+
+  .work-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .banner {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 2rem;
+  }
+
+  .banner-words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .banner-words span {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--accent-color, #6366f1);
+    opacity: 0.15;
+    transition: opacity 0.3s ease;
+  }
+
+  .banner-words span:hover {
+    opacity: 1;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-color, #6366f1), transparent);
+  }
+
+  .timeline-year {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .year-marker {
+    flex-shrink: 0;
+    width: 120px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+
+  .year-marker::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-color, #6366f1);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--accent-color, #6366f1);
+  }
+
+  .year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color, #6366f1);
+  }
+
+  .year-events {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .timeline-card {
+    background: var(--bg-secondary, #f8fafc);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .timeline-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .event-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    margin: 0 0 0.5rem;
+  }
+
+  .event-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #64748b);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .year-marker {
+      width: 60px;
+      padding-right: 1rem;
+    }
+
+    .year-marker::after {
+      right: -6px;
+    }
+
+    .year {
+      font-size: 1.25rem;
+    }
+
+    .timeline-year {
+      gap: 1rem;
+    }
+  }
+</style>

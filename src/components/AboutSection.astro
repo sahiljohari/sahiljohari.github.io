@@ -1,0 +1,194 @@
+---
+const technologies = [
+  'HTML', 'React', 'CSS/SASS', 'Redux', 'JavaScript (ES6+)',
+  'Node', 'TypeScript', 'Angular', 'Python', 'StencilJS',
+  'C#', 'Socket-IO', 'Cypress', 'Jest/Enzyme', 'Git/GitHub',
+  'REST API', 'GraphQL', 'Oracle PL-SQL', 'MySQL', 'AWS',
+];
+---
+
+<section class="about-section" id="about">
+  <div class="about-container">
+    <h2 class="section-title">About me</h2>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I have been engineering highly available, scalable, and real-time software and web applications 
+          with pixel-perfect user interfaces for over <strong>4 years</strong>. For the past 2 years, 
+          I have been developing web apps with engaging user experience and modern look-and-feel across 
+          multiple platforms (web/mobile) along with managing their infrastructural components and 
+          cloud-based services.
+        </p>
+        
+        <p>
+          Shortly after graduating from <a href="https://www.smu.edu/" target="_blank" rel="noopener noreferrer">Southern Methodist University</a> 
+          with a Masters degree in Computer Science, I joined the engineering team at 
+          <a href="https://www.riversagile.com/" target="_blank" rel="noopener noreferrer">Rivers Agile</a> in 2019, 
+          where I worked as a software consultant on a wide variety of interesting and meaningful projects with multiple clients. 
+          After spending 2 years, I switched gears and joined 
+          <a href="https://www.highmarkhealth.org/hmk/index.shtml" target="_blank" rel="noopener noreferrer">Highmark Health</a> 
+          as a full-stack software engineer in 2021.
+        </p>
+        
+        <p>
+          Outside of work, I like to spend my time working on side-projects and playing video games. 
+          I also enjoy solving coding problems that involve great analytical thinking and challenge me 
+          intellectually at every step. I am an explorer, and tend to constantly look for new things to 
+          learn and build.
+        </p>
+      </div>
+      
+      <div class="about-image">
+        <img src="/assets/images/new_me.jpeg" alt="Sahil Johari" />
+      </div>
+    </div>
+
+    <div class="technologies">
+      <p class="tech-intro">
+        As an engineer, here are some of the technologies I have worked with so far in my career:
+      </p>
+      <ul class="tech-grid">
+        {technologies.map(tech => (
+          <li class="tech-item">{tech}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 6rem 2rem;
+    background: var(--bg-secondary, #f8fafc);
+  }
+
+  .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color, #6366f1);
+    border-radius: 2px;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-text p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text a {
+    color: var(--accent-color, #6366f1);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .about-text a:hover {
+    text-decoration: underline;
+  }
+
+  .about-text strong {
+    color: var(--text-primary, #1e293b);
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-image::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 3px solid var(--accent-color, #6366f1);
+    border-radius: 12px;
+    z-index: -1;
+  }
+
+  .tech-intro {
+    font-size: 1.0625rem;
+    color: var(--text-secondary, #64748b);
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tech-item {
+    font-size: 0.9375rem;
+    color: var(--text-secondary, #64748b);
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .tech-item::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color, #6366f1);
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .about-image {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+
+    .section-title::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .about-section {
+      text-align: center;
+    }
+
+    .tech-item {
+      text-align: left;
+    }
+  }
+</style>
