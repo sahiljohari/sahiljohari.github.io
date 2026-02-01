@@ -1,18 +1,15 @@
 ---
 import SocialLinks from './SocialLinks.astro';
+import { introContent } from '../data';
 ---
 
 <section class="intro-section">
   <div class="intro-content">
-    <p class="greeting">Hi, I'm</p>
-    <h1 class="name">Sahil.</h1>
-    <p class="description">
-      I am a <span class="highlight">Software Engineer</span> by profession and an artist by passion. 
-      Known for my sharp attention to detail and simplification skills, I love to bring astonishing 
-      ideas to life. You are looking at one right now!
-    </p>
+    <p class="greeting">{introContent.greeting}</p>
+    <h1 class="name">{introContent.name}</h1>
+    <p class="description" set:html={introContent.description} />
     <div class="cta-container">
-      <a href="/assets/resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <a href={introContent.resumeUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         Resume
       </a>
     </div>
@@ -21,7 +18,7 @@ import SocialLinks from './SocialLinks.astro';
     </div>
   </div>
   <div class="intro-illustration">
-    <img src="/assets/svgs/intro-page-svg.svg" alt="Developer illustration" />
+    <img src={introContent.illustration} alt="Developer illustration" />
   </div>
 </section>
 

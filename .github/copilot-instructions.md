@@ -13,6 +13,7 @@ This is a personal portfolio website built with Astro — a modern static site g
 ## Project Structure
 ```
 src/
+├── data/           # Centralized content data (TypeScript)
 ├── pages/          # File-based routing (.astro files)
 ├── layouts/        # Page layouts (BaseLayout.astro)
 ├── components/     # Reusable Astro components
@@ -25,12 +26,60 @@ public/
 └── favicon.ico
 ```
 
+## Content Management
+
+All content is centralized in `src/data/` for easy updates. Components import data from this directory.
+
+### Data Files
+| File | Purpose | Used By |
+|------|---------|---------|
+| `site.ts` | Site metadata, owner info, footer | BaseLayout |
+| `intro.ts` | Hero section content | IntroSection |
+| `about.ts` | Bio paragraphs, profile image | AboutSection |
+| `skills.ts` | Technology list | AboutSection |
+| `testimonials.ts` | Colleague testimonials | Testimonials |
+| `timeline.ts` | Career timeline by year | WorkSection |
+| `projects.ts` | Portfolio projects | PortfolioSection |
+| `social.ts` | Social media links | SocialLinks |
+| `navigation.ts` | Nav menu items | NavBar |
+| `index.ts` | Barrel file (re-exports all) | All components |
+
+### How to Update Content
+1. Edit the relevant file in `src/data/`
+2. Content uses TypeScript interfaces for type safety
+3. HTML is supported in string fields (rendered with `set:html`)
+
+### Example: Adding a new project
+```typescript
+// src/data/projects.ts
+export const projectsContent = {
+  projects: [
+    {
+      name: 'New Project',
+      summary: 'Description here...',
+      github: 'https://github.com/...',
+      demo: 'https://demo-url.com',
+      thumbnail: '/assets/images/project.png',
+    },
+    // ...existing projects
+  ],
+};
+```
+
+### Example: Importing data in components
+```astro
+---
+import { socialLinks, siteConfig } from '../data';
+---
+{socialLinks.map(link => <a href={link.url}>{link.name}</a>)}
+```
+
 ## Coding Conventions
 
 ### Components
 - Use `.astro` files for all components (zero JS by default)
 - Define component props with TypeScript interfaces
-- Keep content data in component frontmatter, not external files
+- Import content from `src/data/` — don't hardcode content
 - Use scoped `<style>` blocks for component styling
 
 ### Astro Patterns
