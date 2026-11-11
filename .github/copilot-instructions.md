@@ -4,7 +4,7 @@
 This is a personal portfolio website built with Astro — a modern static site generator optimized for content-driven websites.
 
 ## Tech Stack
-- **Framework**: Astro 5.x
+- **Framework**: Astro 6.x
 - **Language**: TypeScript (strict mode)
 - **Styling**: Scoped CSS in Astro components
 - **Icons**: astro-icon with Iconify (Font Awesome 6)
