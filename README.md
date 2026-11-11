@@ -6,7 +6,7 @@ My personal portfolio website built with [Astro](https://astro.build) — a mode
 
 ## Tech Stack
 
-- **Framework**: Astro 5.x
+- **Framework**: Astro 6.x
 - **Styling**: Scoped CSS with CSS custom properties
 - **Icons**: astro-icon with Font Awesome 6
 - **Deployment**: GitHub Pages (production) + Netlify (PR previews)
