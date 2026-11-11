@@ -33,7 +33,7 @@ All content is centralized in `src/data/` for easy updates. Components import da
 ### Data Files
 | File | Purpose | Used By |
 |------|---------|---------|
-| `site.ts` | Site metadata, owner info, footer | BaseLayout |
+| `site.ts` | Site metadata, owner info, footer | BaseLayout, NavBar |
 | `intro.ts` | Hero section content | IntroSection |
 | `about.ts` | Bio paragraphs, profile image | AboutSection |
 | `skills.ts` | Technology list | AboutSection |
@@ -47,7 +47,7 @@ All content is centralized in `src/data/` for easy updates. Components import da
 ### How to Update Content
 1. Edit the relevant file in `src/data/`
 2. Content uses TypeScript interfaces for type safety
-3. HTML is supported in string fields (rendered with `set:html`)
+3. Raw HTML is **only rendered in fields passed to `set:html`** — currently `introContent.description`, `aboutContent.bio`, and `siteConfig.footer.builtWith`. All other string fields (e.g., timeline descriptions, testimonial text) are escaped and rendered as plain text.
 
 ### Example: Adding a new project
 ```typescript

@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import IntroSection from '../components/IntroSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import Testimonials from '../components/Testimonials.astro';
+import { siteConfig } from '../data';
 ---
 
-<BaseLayout title="Sahil Johari | Software Engineer">
+<BaseLayout title={siteConfig.pages.home.title}>
   <IntroSection />
   <AboutSection />
   <Testimonials />

@@ -9,6 +9,19 @@ export interface SiteConfig {
     fullName: string;
     email: string;
   };
+  pages: {
+    home: {
+      title: string;
+    };
+    work: {
+      title: string;
+      description: string;
+    };
+    portfolio: {
+      title: string;
+      description: string;
+    };
+  };
   footer: {
     builtWith: string;
     copyright: string;
@@ -24,6 +37,19 @@ export const siteConfig: SiteConfig = {
     lastName: 'Johari',
     fullName: 'Sahil Johari',
     email: 'sahiljohari12@gmail.com',
+  },
+  pages: {
+    home: {
+      title: 'Sahil Johari | Software Engineer',
+    },
+    work: {
+      title: 'Timeline | Sahil Johari',
+      description: 'My professional journey and career milestones',
+    },
+    portfolio: {
+      title: 'Portfolio | Sahil Johari',
+      description: 'Personal projects and side work',
+    },
   },
   footer: {
     builtWith: 'Built with ❤️ using <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>',

@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PortfolioSection from '../components/PortfolioSection.astro';
+import { siteConfig } from '../data';
 ---
 
-<BaseLayout title="Portfolio | Sahil Johari" description="Personal projects and side work">
+<BaseLayout title={siteConfig.pages.portfolio.title} description={siteConfig.pages.portfolio.description}>
   <PortfolioSection />
 </BaseLayout>
