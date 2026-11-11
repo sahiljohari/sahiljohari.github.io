@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WorkSection from '../components/WorkSection.astro';
+import { siteConfig } from '../data';
 ---
 
-<BaseLayout title="Timeline | Sahil Johari" description="My professional journey and career milestones">
+<BaseLayout title={siteConfig.pages.work.title} description={siteConfig.pages.work.description}>
   <WorkSection />
 </BaseLayout>

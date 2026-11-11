@@ -1,0 +1,23 @@
+// Technical skills
+export const skills: string[] = [
+  'HTML',
+  'React',
+  'CSS/SASS',
+  'Redux',
+  'JavaScript (ES6+)',
+  'Node',
+  'TypeScript',
+  'Angular',
+  'Python',
+  'StencilJS',
+  'C#',
+  'Socket-IO',
+  'Cypress',
+  'Jest/Enzyme',
+  'Git/GitHub',
+  'REST API',
+  'GraphQL',
+  'Oracle PL-SQL',
+  'MySQL',
+  'AWS',
+];

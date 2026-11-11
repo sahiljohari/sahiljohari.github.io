@@ -1,5 +1,6 @@
 ---
 import NavBar from '../components/NavBar.astro';
+import { siteConfig } from '../data';
 
 interface Props {
   title?: string;
@@ -7,8 +8,8 @@ interface Props {
 }
 
 const { 
-  title = 'Sahil Johari | Portfolio',
-  description = 'Software Engineer portfolio - Building pixel-perfect, scalable web applications'
+  title = siteConfig.title,
+  description = siteConfig.description
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -20,7 +21,7 @@ const currentPath = Astro.url.pathname;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#6366f1" />
+    <meta name="theme-color" content={siteConfig.themeColor} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
@@ -30,8 +31,8 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
     <footer class="footer">
-      <p>Built with ❤️ using <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a></p>
-      <p class="copyright">© {new Date().getFullYear()} Sahil Johari. All rights reserved.</p>
+      <p set:html={siteConfig.footer.builtWith} />
+      <p class="copyright">{siteConfig.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</p>
     </footer>
   </body>
 </html>
